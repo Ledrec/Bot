@@ -1,4 +1,4 @@
-var string symbols = array.new_string()
+var string bingx_symbols = array.new_string()
 array.push(bingx_symbols, "10000000AIDOGEUSDT")
 array.push(bingx_symbols, "10000000AIDOGEUSDT")
 array.push(bingx_symbols, "1000000BABYDOGEUSDT")
