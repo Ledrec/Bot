@@ -5,13 +5,18 @@ import hashlib
 from operator import itemgetter
 import csv
 from datetime import datetime
+import os
 
 # BingX API base URL
 API_URL = "https://open-api.bingx.com"
 
-# Your API credentials (you’ll need to get these from BingX)
-API_KEY = "U2HriBdK39ia5WHNdywJ5qG0bqeBsH267nMdPRNwdqGcbLE4d7uvvZF8XfYaew2gJAd0u3EdNBaIXnWDCMPw"  # Replace with your actual API key
-SECRET_KEY = "YOUdH9COPvtvAo1EhYlLbD61tp9glWgfuVVRcX10CZw9D0dbJUYHDgh6e7Lq4kibIX6PupPlMOcnMMgVgMew"  # Replace with your actual secret key
+# Get API credentials from environment variables
+API_KEY = os.getenv("BINGX_API_KEY")
+SECRET_KEY = os.getenv("BINGX_SECRET_KEY")
+
+# Check if credentials are provided
+if not API_KEY or not SECRET_KEY:
+    raise ValueError("API_KEY and SECRET_KEY must be set as environment variables")
 
 # Function to generate the signature required by BingX API
 def generate_signature(secret_key, params):
